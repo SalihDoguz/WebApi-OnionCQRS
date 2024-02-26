@@ -9,6 +9,10 @@ namespace WebApi.Mapper.AutoMapper
         public static List<TypePair> typePairs = new();
         private IMapper MapperContainer;
 
+        public Mapper(IMapper mapperContainer)
+        {
+            MapperContainer = mapperContainer;
+        }
 
         public TDestination Map<TDestination, TSource>(TSource source, string? ignore = null)
         {

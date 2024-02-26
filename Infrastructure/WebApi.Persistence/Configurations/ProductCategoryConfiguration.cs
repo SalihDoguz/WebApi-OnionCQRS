@@ -8,7 +8,7 @@ namespace WebApi.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<ProductCategory> builder)
         {
-            builder.HasKey(x => new { x.ProductId,x.CategoryId });
+            builder.HasKey(x => new { x.ProductId, x.CategoryId });
 
             builder.HasOne(p => p.Product)
                 .WithMany(pc => pc.ProductCategories)
