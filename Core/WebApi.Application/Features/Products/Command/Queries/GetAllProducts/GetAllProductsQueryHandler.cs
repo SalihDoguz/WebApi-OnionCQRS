@@ -12,7 +12,7 @@ namespace WebApi.Application.Features.Products.Command.Queries.GetAllProducts
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper mapper;
 
-        public GetAllProductsQueryHandler(IUnitOfWork unitOfWork,IMapper mapper)
+        public GetAllProductsQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this._unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -20,7 +20,7 @@ namespace WebApi.Application.Features.Products.Command.Queries.GetAllProducts
 
         public async Task<IList<GetAllProductsQueryResponse>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
-            var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync(include: x => x.Include(b =>b.Brand));
+            var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync(include: x => x.Include(b => b.Brand));
 
             var brand = mapper.Map<BrandDto, Brand>(new Brand());
 

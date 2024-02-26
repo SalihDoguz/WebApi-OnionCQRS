@@ -4,10 +4,10 @@ using WebApi.Domain.Entities;
 
 namespace WebApi.Persistence.Context
 {
-    public class AppDbContext :DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext()
-        { 
+        {
         }
 
         public AppDbContext(DbContextOptions options) : base(options)
